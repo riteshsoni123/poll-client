@@ -31,7 +31,7 @@ function AnswerPoll(props) {
         <div className="text-4xl">The Poll has ended</div>
       )}
 
-      <div className="py-4 border-2  flex flex-col justify-center">
+      <div className="py-4 flex flex-col justify-center">
         <div className="text-3xl my-4 border-b-2">{question}</div>
         <div>
           {options.map((option, i) => {
