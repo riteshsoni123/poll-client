@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import io from "socket.io-client";
 import Login from "./screen/login";
 import Teacher from "./screen/teacher";
@@ -25,14 +25,38 @@ function App() {
   console.log("These are the list of users: ", userList);
   console.log("These are the list of messages", messages);
 
+  const count = useRef(0);
+
   useEffect(() => {
+    count.current = count.current + 1;
+    console.log("Number of rerenders", count.current);
+  });
+
+  useEffect(() => {
+    console.log("it is running");
     if (localStorage.getItem(window.name) !== null) {
+      // upupdateLocalStorage("question", question);
+      // updateLocalStorage("options", options);
+      // updateLocalStorage("countDown", countDown);
+      // updateLocalStorage("runTimer", true);
+      // updateLocalStorage("pollResult", tmpArray);
+      // updateLocalStorage("formSubmitted", true);
+
       const obj = JSON.parse(localStorage.getItem(window.name));
       setName(obj.name);
-      if (obj.isTeacher != null) setIsTeacher(obj.isTeacher);
+      if (obj.isTeacher !== null) setIsTeacher(obj.isTeacher);
       if (obj.teacherId) setTeacherId(obj.teacherId);
       if (obj.userList) setUserList(obj.userList);
       if (obj.messages) setMessages(obj.messages);
+      if (obj.options) setOptions(obj.options);
+      if (obj.question) setQuestion(obj.question);
+
+      if (obj.question) setQuestion(obj.question);
+      if (obj.options) setOptions(obj.options);
+      if (obj.countDown) setCountDown(obj.countDown);
+      if (obj.runTimer !== null) setRunTimer(obj.runTimer);
+      if (obj.pollResult) setPollResult(obj.pollResult);
+      if (obj.formSubmitted) setFormSubmitted(obj.formSubmitted);
     }
   }, []);
 
@@ -111,9 +135,7 @@ function App() {
       const newPollResult = [...pollResult];
       newPollResult[data.index] += 1;
 
-      console.log("This is the after poll", newPollResult);
-
-      // console.log("The option to be updated is: ", data.index);
+      // console.log("This is the after poll", newPollResult);
 
       setPollResult(newPollResult);
     });
@@ -164,7 +186,6 @@ function App() {
     socket.emit("updateUserList", newList);
 
     updateLocalStorage("userList", newList);
-
     setUserList(newList);
   };
 
@@ -176,36 +197,40 @@ function App() {
 
   const updateUserList = (newUser) => {
     const newList = [...userList];
-
     newList.push(newUser);
-
     updateLocalStorage("userList", newList);
 
-    console.log("Inside the updateUserList function: ", newList);
+    // console.log("Inside the updateUserList function: ", newList);
 
     socket.emit("updateUserList", newList);
-
     setUserList(newList);
   };
 
   const braodCastMessage = (msg) => {
     const newMessages = [...messages];
-
     const msgObj = { userId: window.name, username: name, message: msg };
-
     newMessages.push(msgObj);
 
     updateLocalStorage("messages", newMessages);
-
     socket.emit("sendMessage", { msgs: msgObj, users: userList });
-
     setMessages(newMessages);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // console.log("form submitted");
+    // if (countDown > 60) {
+    //   alert("Max limit for time is 60 seconds");
+    //   return;
+    // }
+    if (question === "") {
+      alert("Please Enter the questoin");
+      return;
+    }
+    if (countDown <= 0) {
+      alert("Please Enter a feasable time");
+      return;
+    }
 
     socket.emit("sendPoll", {
       question: question,
@@ -222,6 +247,13 @@ function App() {
     setPollResult(tmpArray);
     setRunTimer(true);
     setFormSubmitted(true);
+
+    updateLocalStorage("question", question);
+    updateLocalStorage("options", options);
+    updateLocalStorage("countDown", countDown);
+    updateLocalStorage("runTimer", true);
+    updateLocalStorage("pollResult", tmpArray);
+    updateLocalStorage("formSubmitted", true);
   };
 
   const pollSubmitted = (i) => {

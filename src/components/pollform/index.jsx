@@ -31,8 +31,10 @@ function PollForm(props) {
   };
 
   return (
-    <div className="border-2 h-full flex flex-col justify-center items-center">
-      <div>Enter the question and the options</div>
+    <div className="bg-[#BABCBE] mt-2 rounded-t-xl flex flex-col justify-center items-center">
+      <div className="bg-[#494F55] text-[#BABCBE] rounded-t-xl w-full text-center py-2 text-2xl">
+        Enter the question and the options
+      </div>
       <div className="bg-[#BABCBE] w-2/3 rounded-xl flex flex-col justify-center items-center my-10 py-10 px-4">
         <div className="w-full flex justify-center items-center">
           <form

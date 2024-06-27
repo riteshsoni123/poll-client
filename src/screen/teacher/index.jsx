@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Users from "../../components/users";
 import Messages from "../../components/messages";
 import PollForm from "../../components/pollform";
@@ -46,6 +46,13 @@ function Teacher(props) {
     });
   };
 
+  useEffect(() => {
+    if (localStorage.getItem(window.name) !== null) {
+      const obj = JSON.parse(localStorage.getItem(window.name));
+      if (obj.createPoll !== undefined) setCreatePoll(obj.createPoll);
+    }
+  }, []);
+
   return (
     <div className="h-[850px]">
       <Navbar
@@ -62,7 +69,15 @@ function Teacher(props) {
 
         <div className="w-3/6">
           {!createPoll ? (
-            <button onClick={() => setCreatePoll(true)}>Create New Poll</button>
+            <button
+              className="bg-[#494F55] text-[#BABCBE] m-2 p-2 rounded-lg"
+              onClick={() => {
+                setCreatePoll(true);
+                updateLocalStorage("createPoll", true);
+              }}
+            >
+              Create New Poll
+            </button>
           ) : !formSubmitted ? (
             <PollForm
               options={options}
@@ -89,6 +104,7 @@ function Teacher(props) {
               setQuestion={setQuestion}
               setFormSubmitted={setFormSubmitted}
               handleSubmit={handleSubmit}
+              isTeacher={true}
             />
           )}
         </div>

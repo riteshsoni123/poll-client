@@ -41,6 +41,8 @@ function CurrentPoll(props) {
 
   // },[pollResult])
 
+  console.log("currentpol isteacher", isTeacher);
+
   return (
     <div className="mt-2 [&>div]:mb-4 rounded-t-xl bg-[#BABCBE] flex flex-col justify-center items-center">
       <div className="bg-[#494F55] text-[#BABCBE] rounded-t-xl w-full text-center py-2">
@@ -54,10 +56,15 @@ function CurrentPoll(props) {
           setRunTimer={setRunTimer}
         />
       ) : (
-        <div>
-          <div className="text-4xl">The Poll has ended</div>
+        <div className="flex flex-col justify-center">
+          <div className="text-4xl mb-4">The Poll has ended</div>
           {isTeacher ? (
-            <button onClick={() => createNewPoll()}>Create New Poll</button>
+            <button
+              className="bg-[#494F55] text-[#BABCBE] p-2 rounded-lg"
+              onClick={() => createNewPoll()}
+            >
+              Create New Poll
+            </button>
           ) : (
             <></>
           )}

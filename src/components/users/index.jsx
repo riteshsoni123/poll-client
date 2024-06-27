@@ -4,7 +4,7 @@ function Users(props) {
   const { isTeacher, userList, removeUser } = props;
 
   return (
-    <div>
+    <div className="w-full">
       <div className="bg-[#494F55] text-[#BABCBE] text-center text-2xl p-2 rounded-t-xl">
         List of users
       </div>
@@ -12,8 +12,8 @@ function Users(props) {
         return (
           <div key={user.userId}>
             {user.userId === user.teacherId ? (
-              <div key={user.userId}>
-                <span>{user.username}</span>
+              <div className="border-b-2 px-2" key={user.userId}>
+                <span className="text-3xl"> {user.username}</span>
               </div>
             ) : (
               <> </>
@@ -23,12 +23,15 @@ function Users(props) {
       })}
       {userList.map((user) => {
         return (
-          <div key={user.userId}>
+          <div className="border-2 px-2" key={user.userId}>
             {user.userId !== user.teacherId ? (
-              <div>
-                <span>{user.username}</span>
+              <div className="p-2 flex flex-row justify-between">
+                <span className="text-xl">{user.username}</span>
                 {isTeacher ? (
-                  <button onClick={() => removeUser(user.userId, userList)}>
+                  <button
+                    className="bg-[#494F55] text-[#BABCBE] px-2 rounded-lg"
+                    onClick={() => removeUser(user.userId, userList)}
+                  >
                     Remove
                   </button>
                 ) : (
