@@ -31,13 +31,15 @@ function AnswerPoll(props) {
         <div className="text-4xl">The Poll has ended</div>
       )}
 
-      <div className="py-4">
+      <div className="py-4 border-2  flex flex-col justify-center">
         <div className="text-3xl my-4 border-b-2">{question}</div>
         <div>
           {options.map((option, i) => {
             return (
               <div
-                className="flex flex-row justify-between [&>span]:text-xl my-1 border-2 py-2 px-2 rounded-lg"
+                className={`flex flex-row justify-between [&>span]:text-xl my-2 py-2 px-2 border-2 rounded-lg cursor-pointer ${
+                  currentOption === i ? "border-black" : ""
+                }`}
                 key={i}
                 onClick={() => setCurrentOption(i)}
               >
@@ -47,6 +49,7 @@ function AnswerPoll(props) {
           })}
         </div>
         <button
+          className="bg-[#494F55] text-[#BABCBE] p-2 rounded-lg my-2"
           onClick={() => {
             if (currentOption === -1) {
               alert("Please choose a option");
