@@ -1,70 +1,47 @@
-# Getting Started with Create React App
+# Getting Started with Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Live Link:
 
-## Available Scripts
+### Go to the given link to see the live web app.
 
-In the project directory, you can run:
+    https://live2poll.netlify.app/
 
-### `npm start`
+# Steps to run the web app on Local system:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Frontend setup:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Step 1: Go to the given link to download the frontend part of the code.
 
-### `npm test`
+    https://github.com/riteshsoni123/poll-client
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Step 2: After downloading the code go inside the directory and type the command "npm install" in the console to download all the packages used in the frontend.
+Step 3: Now to run the frontend part some essentential details is needed which is stored in the .env file.
+Step 4: Create an .env file in the directory and paste the following information in it.
 
-### `npm run build`
+    REACT_APP_BACKEND_URL=http://localhost:8000
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Step 5: Type the "npm start" command in the console to start the frontend.
+After this the frontend part is ready to be executed in the local system.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Backend setup:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Step 1: Go the the given link to download the backend part of the code.
 
-### `npm run eject`
+    https://github.com/riteshsoni123/poll-server
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Step 2: After downloading the code go inside the directory and type the command "npm install" in the consile to downlead all the packages used in the backend.
+Step 3: Now to run the backend part some essential details is needed which is stored in the .env file.
+Step 4: Create an .env file in the directory and paste the following information in it.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    FRONTEND_URL=http://localhost:3000
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Step 5: Type the "npm start" command in the cosole to start the frontend.
+After this the backend part is ready to be executed in the local system.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Local link
 
-## Learn More
+Use the given link to view the app.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+    http://localhost:3000
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### How to use the web application
