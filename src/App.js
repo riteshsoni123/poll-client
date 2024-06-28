@@ -84,6 +84,8 @@ function App() {
       // obj.userList = newList;
       // localStorage.setItem(window.name, JSON.stringify(obj));
 
+      console.log("received the updated list for this user", newList);
+
       updateLocalStorage("userList", newList);
 
       setUserList(newList);
