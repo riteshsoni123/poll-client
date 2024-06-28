@@ -21,6 +21,7 @@ function App() {
 
   const [countDown, setCountDown] = useState(0);
   const [runTimer, setRunTimer] = useState(false);
+  const [showLivePoll, setShowLivePoll] = useState(false);
 
   console.log("These are the list of users: ", userList);
   console.log("These are the list of messages", messages);
@@ -116,6 +117,7 @@ function App() {
       setOptions(data.options);
       setCountDown(data.time);
       setRunTimer(true);
+      setShowLivePoll(false);
 
       const tmpArray = [];
       data.options.forEach(() => {
@@ -135,7 +137,7 @@ function App() {
       const newPollResult = [...pollResult];
       newPollResult[data.index] += 1;
 
-      // console.log("This is the after poll", newPollResult);
+      console.log("This is the after poll", newPollResult);
 
       setPollResult(newPollResult);
     });
@@ -331,6 +333,8 @@ function App() {
           runTimer={runTimer}
           setRunTimer={setRunTimer}
           isTeacher={isTeacher}
+          showLivePoll={showLivePoll}
+          setShowLivePoll={setShowLivePoll}
         />
       )}
     </div>

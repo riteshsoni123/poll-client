@@ -23,11 +23,13 @@ function Student(props) {
     runTimer,
     setRunTimer,
     isTeacher,
+    showLivePoll,
+    setShowLivePoll,
   } = props;
   const [inRoom, setInRoom] = useState(false);
   // const teacherId = useRef(null);
   const [tId, settId] = useState("");
-  const [showLivePoll, setShowLivePoll] = useState(false);
+
   // const [pollSubmitted,set]
 
   console.log("This is mess", messages);
